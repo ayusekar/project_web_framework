@@ -40,4 +40,25 @@ echo "Route diakses menggunakan nama";
 })->name('create');
 
 
+Route::get('/produk/show', 'produkController@show');
+
+Route::get('/halaman',function(){
+$title = 'Harry Pooter';
+$konten = 'harry potter and the deathly hallows: part 2';
+return view('konten.halaman',compact('title','konten'));
+});
+// route bawaan default laravel
+Route::get('/', function () {
+	return view('welcome');
+});
+ 
+// route blog
+Route::get('/blog', 'BlogController@home');
+Route::get('/blog/tentang', 'BlogController@tentang');
+Route::get('/blog/kontak', 'BlogController@kontak');
+Route::get('/pelanggan', 'pelangganController@index');
 Route::get('/produk', 'produkController@index');
+
+Route::get('/pelanggan', 'pelangganController@index');
+
+Route::resource('produk','produkControllerr');
